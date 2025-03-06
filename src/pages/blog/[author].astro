@@ -6,12 +6,17 @@ import TypeBlogPost from 'src/components/TypeBlogPost.astro';
 import { Image } from 'astro:assets';
 import { getCollection } from "astro:content";
 
+//? cuando debo usar getStaticPaths??
+/* 
+se usa getStaticPaths cuando se tiene paths dinamicos
+se crean los url y props q se obtiene de colecciones
+*/
 export const getStaticPaths = (async () => {
-  //! esto es util para cuando se tiene mas de una coleccion a espera
+  
     const [authors, posts] = await Promise.all([
         getCollection("author"),
         getCollection("blog"),
-    ]);
+    ]);//! esto es util para cuando se tiene mas de una coleccion a espera
 
     return authors.map((author: any) => ({
         params: { author: author.id },
