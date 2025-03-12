@@ -6,8 +6,8 @@ const blogCollection = defineCollection({
         title: z.string(),
         date: z.date(),
         description: z.string(),
-        image: z.string(),
-        // image: image(),
+        // image: z.string(),
+        image: image(),
         // image: image().refine((img) => img.width <1200, {
         //     message: 'La imagen debe tener menos de 1200px de ancho'
         // }),
